@@ -1,0 +1,129 @@
+
+
+:root {
+    --fuente-titulos: 'Poppins', sans-serif;
+    --fuente-texto: 'Roboto', sans-serif;
+    --fondo: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);
+    --transicion: 0.3s;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    background: #A770EF;
+    background: var(--fondo);
+    min-height: 100vh;
+}
+
+h1, h2, .navbar-brand {
+    font-family: var(--fuente-titulos);
+}
+
+h1 {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+.app {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "panel"
+        "visualizador"
+        "lista";
+}
+
+.panel { grid-area: panel; }
+.visualizador { grid-area: visualizador; }
+.lista { grid-area: lista; }
+
+@media (min-width: 768px) {
+    .app {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "panel visualizador"
+            "lista lista";
+    }
+}
+
+.panel,
+.visualizador,
+.lista {
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.titulo {
+    font-weight: bold;
+    margin: 0;
+}
+
+#audio {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn {
+    transition: background-color var(--transicion), color var(--transicion);
+}
+
+.portada-cancion {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+}
+
+#listaCanciones li {
+    cursor: pointer;
+}
+
+.cuadro {
+    height: 100%;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
+.cuadro img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.nombre {
+    margin: 0.5rem 0 0;
+}
+
+.autor {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+#listaCanciones li:hover .nombre {
+    text-decoration: underline;
+}
+
+#listaCanciones li.activa .cuadro {
+    border-color: #000;
+}
+
+#listaCanciones li.activa .nombre {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+footer p {
+    margin: 0;
+}
